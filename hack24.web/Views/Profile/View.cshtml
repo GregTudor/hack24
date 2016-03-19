@@ -5,17 +5,20 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>View</h2>
+<h2>Profile</h2>
 
-<p>@Model.FirstName</p>
-<p>@Model.LastName</p>
-<p>@Model.Bio</p>
+<img src="~/Images/ProfileImages/@Model.ProfileImage"/>
+<h3>Name</h3>
+<p>@Model.FirstName @Model.LastName</p>
+<h3>Job Title</h3>
 <p>@Model.JobTitle</p>
-<p>@Model.ProfileImage</p>
+<h3>Bio</h3>
+<p>@Model.Bio</p>
+
 <h3>Tags</h3>
-<ul>
+<div class="col-xs-12">
 	@foreach (var tag in Model.Tags)
 	{
-		<li>@tag.DisplayName</li>
+		<div class="skill-tag">@tag.DisplayName</div>
 	}
-</ul>
+</div>
