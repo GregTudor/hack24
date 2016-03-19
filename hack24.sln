@@ -21,6 +21,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "hack24", ".", "{A46DEFD7-88
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "52966"
+		SlnRelativePath = "..\hack24\"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hack24.core", "hack24.core\hack24.core.csproj", "{B784AD49-96CC-4198-A834-ED5E83CEAADA}"
