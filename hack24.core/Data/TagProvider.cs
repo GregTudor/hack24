@@ -9,12 +9,12 @@ namespace hack24.core.Data
 		{
 			new Tag("unitedkingdom", "United Kingdom", 100),
 			new Tag("unitedstatesofamerica", "United States of America", 101),
-			new Tag("austrailia", "Austrailia", 102),
+			new Tag("australia", "Australia", 102),
 			new Tag("narnia", "Narnia", 103),
 			new Tag("nottingham", "Nottingham", 104),
 			new Tag("newyork", "New York", 105),
 			new Tag("sydney", "Sydney", 106),
-			new Tag("alandia", "Aslandia", 107)
+			new Tag("aslandia", "Aslandia", 107)
 		};
 
 		public static IEnumerable<Tag> PersonTypes = new[]
@@ -41,18 +41,18 @@ namespace hack24.core.Data
 		public static IEnumerable<Tag> Skills = new[]
 		{
 			new Tag("problemsolver", "Problem solver", 501),
-			new Tag("listener", "Problem solver", 502),
+			new Tag("listener", "Listener", 502),
 			new Tag("communicator", "Communicator", 503),
 			new Tag("strategist", "Strategist", 504),
-			new Tag("risktaker", "Risk taker", 505),
-			new Tag("descisionmaker", "Decision maker", 506),
+			new Tag("risktaker", "Risk Taker", 505),
+			new Tag("descisionmaker", "Decision Maker", 506),
 			new Tag("collaborator", "Collaborator", 507),
 			new Tag("planner", "Planner", 508),
 			new Tag("organiser", "Organiser", 509),
 			new Tag("planner", "Planner", 510),
-			new Tag("briefmaker", "Brief maker", 511),
-			new Tag("officesuplier", "officesupplier", 512),
-			new Tag("creativeproblemsolver", "Creative problem solver", 513),
+			new Tag("briefmaker", "Brief Maker", 511),
+			new Tag("officesupplier", "Office Supplier", 512),
+			new Tag("creativeproblemsolver", "Creative problem solver",513)
 			new Tag("helper", "Helper", 513),
 			new Tag("inspirer", "Inspirer", 514),
 			new Tag("synergiser", "Synergiser", 515),
