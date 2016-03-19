@@ -11,7 +11,6 @@ namespace hack24.core.Data
 			new Tag("unitedstatesofamerica", "United States of America", 101),
 			new Tag("austrailia", "Austrailia", 102),
 			new Tag("narnia", "Narnia", 103),
-
 			new Tag("nottingham", "Nottingham", 104),
 			new Tag("newyork", "New York", 105),
 			new Tag("sydney", "Sydney", 106),
@@ -53,39 +52,21 @@ namespace hack24.core.Data
 			new Tag("planner", "Planner", 510),
 			new Tag("briefmaker", "Brief maker", 511),
 			new Tag("officesuplier", "officesupplier", 512),
-			new Tag("creativeproblemsolver", "Creative problem solver", 513)
+			new Tag("creativeproblemsolver", "Creative problem solver", 513),
+			new Tag("helper", "Helper", 513),
+			new Tag("inspirer", "Inspirer", 514),
+			new Tag("synergiser", "Synergiser", 515),
+			new Tag("visionary", "Visionary", 516),
+			new Tag("prioritiser", "Prioritiser", 517),
+			new Tag("cheerleader", "Cheerleader", 518),
+			new Tag("customerdelighter", "Customer Delighter", 519),
+			new Tag("realist", "Realist", 520),
+			new Tag("entrepreneural", "Entrepreneural", 521),
+			new Tag("futurist", "Futurist", 522),
+			new Tag("technologist", "Technologist", 523),
+			new Tag("technologist", "Technologist", 524),
+			new Tag("explainer", "Explainer", 525),
+			new Tag("teacher", "Teacher", 526)
 		};
 	}
 }
-
-/*
-Problem solver
-Listener 
-Communicator
-Strategist
-Risk taker
-Decision maker
-Collaborator
-Planner
-Organiser
-Office supplier
-Creative problem solver
-Brief maker
-
-Anybody
-
-Talent maker
-Wage guru
-Team guru
-
-
-Partner connector
-Money maker
-Number cruncher
-Justice advisor
-
-
-Crazy creative
-Digital dooer
-Product fanatic
-	*/
