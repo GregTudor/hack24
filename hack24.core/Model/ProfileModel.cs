@@ -1,12 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace hack24.core.Model
 {
-    class ProfileModel
+    public class ProfileModel
     {
+        public Guid Id { get; set; }
+        public string FirstName { get; set; }
+        public Guid LastName { get; set; }
+        public string ProfileImage { get; set; }
+        public string JobTitle { get; set; }
+        public string Bio { get; set; }
+
+        public IEnumerable<Tag> Tags { get; set; }
+        public IEnumerable<Tag> LocationTags { get; set; }
     }
 }
