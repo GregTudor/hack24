@@ -23,7 +23,11 @@ textarea {
     max-width: 280px;
 }
 
-
+.page-header1 {
+	background-color: #16F2C2;
+	min-height: 92px;
+	text-align: center;
+}
 .icon-tag {
 	text-align: center;
 }
