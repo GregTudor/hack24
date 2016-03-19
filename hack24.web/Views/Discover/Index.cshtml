@@ -7,13 +7,20 @@
 
 <h2>Discover</h2>
 <p>I'm looking for a...</p>
-@foreach (var tag in Model.PersonTypes) {
-
-	<div class="icon-tag">
-		<img src="@("/Content/images/" +tag.Name +".png")"/>
-		<p>@tag.DisplayName</p>
+<div class="row">
+@foreach (var tag in Model.PersonTypes)
+{
+	<div class="col-xs-6">
+		<div class="icon-tag">
+			<img src="@("/Content/images/" +tag.Name +".png")" />
+			<p>@tag.DisplayName</p>
+		</div>
 	</div>
 }
+</div>
+
+
+
 <hr/>
 <p>who is a...</p>
 @foreach (var tag in Model.Skills)
