@@ -69,4 +69,4 @@ namespace hack24.core.Data
 			new Tag("teacher", "Teacher", 526)
 		};
 	}
-}.
+}
