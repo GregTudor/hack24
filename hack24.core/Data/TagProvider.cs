@@ -19,14 +19,14 @@ namespace hack24.core.Data
 
 		public static IEnumerable<Tag> PersonTypes = new[]
 		{
-			new Tag("softwaregeek", "Software Geek", 1),
+			new Tag("softwaregeek", "Software Geek", 1), //
 			new Tag("computerguru", "Computer Guru", 2),
 			new Tag("talentsourcerer", "Talent Sourcerer", 3),
 			new Tag("hrhero", "HR Hero", 4),
 			new Tag("payslippaladin", "Payslip Paladin", 5),
 			new Tag("moneymaker", "Money Maker", 8),
 			new Tag("partnerhunter", "Partner Hunter", 7),
-			new Tag("talentmaster", "Talent Master", 6),
+			new Tag("talentmaster", "Talent Master", 6), //alien head
 			new Tag("numbercruncher", "Number Cruncher", 9),
 			new Tag("warriorofjustice", "Warrior Of Justice", 10),
 			new Tag("crazycreative", "Crazy Creative", 11),
@@ -34,7 +34,7 @@ namespace hack24.core.Data
 			new Tag("productfanatic", "Product Fanatic", 13),
 			new Tag("emailextrodinaire", "Email Extrodinaire", 14),
 			new Tag("socialgenius", "Social Genius", 15),
-			new Tag("campaignmarketeer", "Campaign Marketeer", 16),
+			new Tag("campaignwizard", "Campaign Wizard", 16),
 			new Tag("globalmarketeer", "Global Marketeer", 17)
 		};
 
@@ -69,4 +69,4 @@ namespace hack24.core.Data
 			new Tag("teacher", "Teacher", 526)
 		};
 	}
-}
+}.

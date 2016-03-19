@@ -55,6 +55,7 @@
     <Compile Include="Model\ProfileModel.cs" />
     <Compile Include="Model\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\DiscoveryService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
