@@ -9,7 +9,10 @@
 <p>I'm looking for a...</p>
 @foreach (var tag in Model.PersonTypes) {
 
-	<div>@tag.DisplayName</div>
+	<div class="icon-tag">
+		<img src="@("/Content/images/" +tag.Name +".png")"/>
+		<p>@tag.DisplayName</p>
+	</div>
 }
 <hr/>
 <p>who is a...</p>

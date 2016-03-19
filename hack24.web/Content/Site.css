@@ -22,3 +22,13 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+.icon-tag {
+	width: 200px;
+	text-align: center;
+}
+
+.icon-tag img{
+	width: 50%;
+}

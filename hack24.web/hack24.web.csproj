@@ -223,6 +223,22 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\campaignwizard.png" />
+    <Content Include="Content\images\computerguru.png" />
+    <Content Include="Content\images\crazycreative.png" />
+    <Content Include="Content\images\digitaldynamo.png" />
+    <Content Include="Content\images\emailextrodinaire.png" />
+    <Content Include="Content\images\hrhero.png" />
+    <Content Include="Content\images\moneymaker.png" />
+    <Content Include="Content\images\numbercruncher.png" />
+    <Content Include="Content\images\partnerhunter.png" />
+    <Content Include="Content\images\payslippaladin.png" />
+    <Content Include="Content\images\productfanatic.png" />
+    <Content Include="Content\images\softwaremonkey.png" />
+    <Content Include="Content\images\talentmaster.png" />
+    <Content Include="Content\images\talentsourcerer.png" />
+    <Content Include="Content\images\trumpet.png" />
+    <Content Include="Content\images\warriorofjustice.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
