@@ -23,13 +23,22 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "hack24", ".", "{A46DEFD7-88
 		VWDPort = "52966"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hack24.core", "hack24.core\hack24.core.csproj", "{B784AD49-96CC-4198-A834-ED5E83CEAADA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A46DEFD7-883F-40CA-A8A7-A9CE5CD626EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A46DEFD7-883F-40CA-A8A7-A9CE5CD626EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A46DEFD7-883F-40CA-A8A7-A9CE5CD626EC}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{A46DEFD7-883F-40CA-A8A7-A9CE5CD626EC}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{B784AD49-96CC-4198-A834-ED5E83CEAADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B784AD49-96CC-4198-A834-ED5E83CEAADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B784AD49-96CC-4198-A834-ED5E83CEAADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B784AD49-96CC-4198-A834-ED5E83CEAADA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

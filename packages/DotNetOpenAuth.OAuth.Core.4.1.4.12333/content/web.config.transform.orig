@@ -1,0 +1,16 @@
+<<<<<<< f5a79ab168e54d999448cb3f8f523d2011a4bb12
+<configuration>
+	<configSections>
+		<sectionGroup name="dotNetOpenAuth" type="DotNetOpenAuth.Configuration.DotNetOpenAuthSection, DotNetOpenAuth.Core">
+			<section name="oauth" type="DotNetOpenAuth.Configuration.OAuthElement, DotNetOpenAuth.OAuth" requirePermission="false" allowLocation="true" />
+		</sectionGroup>
+	</configSections>
+=======
+<configuration>
+	<configSections>
+		<sectionGroup name="dotNetOpenAuth" type="DotNetOpenAuth.Configuration.DotNetOpenAuthSection, DotNetOpenAuth.Core">
+			<section name="oauth" type="DotNetOpenAuth.Configuration.OAuthElement, DotNetOpenAuth.OAuth" requirePermission="false" allowLocation="true" />
+		</sectionGroup>
+	</configSections>
+>>>>>>> pkg
+</configuration>
