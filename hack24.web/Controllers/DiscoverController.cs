@@ -14,8 +14,6 @@ namespace hack24.web.Controllers
 		public DiscoverController()
 		{
 			this.discoveryService = new DiscoveryService();
-
-
 		}
 
 		// GET: Discover
@@ -35,8 +33,9 @@ namespace hack24.web.Controllers
 		[HttpPost]
 		public ActionResult Index(DiscoverIndexResource resource)
 		{
-			var tagids = "";
+			var tagids = new[] { 1, 13, 506 };
 			this.discoveryService.GetMatches(tagids);
+
 
 			var id = new Guid();
 			return Redirect("/profile/view/"+id);

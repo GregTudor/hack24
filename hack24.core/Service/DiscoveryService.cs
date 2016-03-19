@@ -8,7 +8,7 @@ namespace hack24.core.Service
 {
 	public class DiscoveryService
 	{
-		public void GetMatches(string tagids)
+		public void GetMatches(int[] tagids)
 		{
 			
 		}
