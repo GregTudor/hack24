@@ -12,17 +12,10 @@
 <p>@Model.Bio</p>
 <p>@Model.JobTitle</p>
 <p>@Model.ProfileImage</p>
-<h5>Tags</h5>
+<h3>Tags</h3>
 <ul>
 	@foreach (var tag in Model.Tags)
 	{
-		@tag.DisplayName
-	}
-</ul>
-<h5>Location Tags</h5>
-<ul>
-	@foreach (var tag in Model.LocationTags)
-	{
-		@tag.DisplayName
+		<li>@tag.DisplayName</li>
 	}
 </ul>

@@ -1,37 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
+﻿using System.Collections.Generic;
 using hack24.core.Model;
 
 namespace hack24.core.Data
 {
 	public class TagProvider
 	{
-		public static IEnumerable<Tag> All => Locations.Union(PersonTypes).Union(Skills);
-
 		public static IEnumerable<Tag> Locations = new[]
 		{
 			new Tag("unitedkingdom", "United Kingdom", 100),
+<<<<<<< a638d6f0cda521a9f90cd36b540c464e041ccddd
 			new Tag("unitedstatesofamerica", "United States of America", 101),
-			new Tag("australia", "Australia", 102),
+			new Tag("austrailia", "Austrailia", 102),
 			new Tag("narnia", "Narnia", 103),
 			new Tag("nottingham", "Nottingham", 104),
 			new Tag("newyork", "New York", 105),
 			new Tag("sydney", "Sydney", 106),
-			new Tag("aslandia", "Aslandia", 107)
+			new Tag("alandia", "Aslandia", 107)
+=======
+			new Tag("austrailia", "Australia", 101),
+			new Tag("unitedstatesofamerica", "United States of America", 102),
+			new Tag("nottingham", "Nottingham", 103),
+			new Tag("newyork", "New York", 105),
+			new Tag("sydney", "Sydney", 104)
+>>>>>>> tag typos
 		};
 
 		public static IEnumerable<Tag> PersonTypes = new[]
 		{
-			new Tag("softwaregeek", "Software Geek", 1), //
+			new Tag("softwaregeek", "Software Geek", 1),
 			new Tag("computerguru", "Computer Guru", 2),
 			new Tag("talentsourcerer", "Talent Sourcerer", 3),
 			new Tag("hrhero", "HR Hero", 4),
 			new Tag("payslippaladin", "Payslip Paladin", 5),
 			new Tag("moneymaker", "Money Maker", 8),
 			new Tag("partnerhunter", "Partner Hunter", 7),
-			new Tag("talentmaster", "Talent Master", 6), //alien head
+			new Tag("talentmaster", "Talent Master", 6),
 			new Tag("numbercruncher", "Number Cruncher", 9),
 			new Tag("warriorofjustice", "Warrior Of Justice", 10),
 			new Tag("crazycreative", "Crazy Creative", 11),
@@ -39,7 +42,7 @@ namespace hack24.core.Data
 			new Tag("productfanatic", "Product Fanatic", 13),
 			new Tag("emailextrodinaire", "Email Extrodinaire", 14),
 			new Tag("socialgenius", "Social Genius", 15),
-			new Tag("campaignwizard", "Campaign Wizard", 16),
+			new Tag("campaignmarketeer", "Campaign Marketeer", 16),
 			new Tag("globalmarketeer", "Global Marketeer", 17)
 		};
 
@@ -55,9 +58,10 @@ namespace hack24.core.Data
 			new Tag("planner", "Planner", 508),
 			new Tag("organiser", "Organiser", 509),
 			new Tag("planner", "Planner", 510),
-			new Tag("briefmaker", "Brief Maker", 511),
-			new Tag("officesupplier", "Office Supplier", 512),
-			new Tag("creativeproblemsolver", "Creative problem solver",513),
+<<<<<<< a638d6f0cda521a9f90cd36b540c464e041ccddd
+			new Tag("briefmaker", "Brief maker", 511),
+			new Tag("officesuplier", "officesupplier", 512),
+			new Tag("creativeproblemsolver", "Creative problem solver", 513),
 			new Tag("helper", "Helper", 513),
 			new Tag("inspirer", "Inspirer", 514),
 			new Tag("synergiser", "Synergiser", 515),
@@ -72,14 +76,11 @@ namespace hack24.core.Data
 			new Tag("technologist", "Technologist", 524),
 			new Tag("explainer", "Explainer", 525),
 			new Tag("teacher", "Teacher", 526)
+=======
+			new Tag("briefmaker", "Brief Maker", 511),
+			new Tag("officesupplier", "Office Supplier", 512),
+			new Tag("creativeproblemsolver", "Creative Problem Solver",513)
+>>>>>>> tag typos
 		};
-
-		public static Tag GetById(string id)
-		{
-			var intId = Convert.ToInt32(id);
-			var tag = All.FirstOrDefault(_ => _.Id == intId);
-
-			return tag ?? new Tag("Oops", "Oops", 1000);
-		}
 	}
 }

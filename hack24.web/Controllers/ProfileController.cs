@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -18,7 +19,7 @@ namespace hack24.web.Controllers
         }
 
 	    public ActionResult View(Guid id)
-	    {
+		{ 
 		    using (var session = MartenStuff.Store.LightweightSession())
 		    {
 			    var profile = session.Query<ProfileModel>().Single(x => x.Id == id);
@@ -34,7 +35,6 @@ namespace hack24.web.Controllers
 					FirstName = profile.FirstName,
 					JobTitle = profile.JobTitle,
 					LastName = profile.LastName,
-					LocationTags = profile.LocationTags,
 					Tags = profile.Tags
 				});
 		    }
@@ -42,21 +42,34 @@ namespace hack24.web.Controllers
 
 	    public ActionResult Fist()
 	    {
-		    var profile = new ProfileModel
-		    {
-			    FirstName = "Stevie",
-				Bio = "Collector of bins extraordinaire.",
-				JobTitle = "Bin Master",
-				LastName = "Tubins",
-				//LocationTags = new[] { new Tag {DisplayName = "Nottingham", Name = "nottm" } },
-				//Tags = new[] { new Tag { DisplayName = "Bin Hoarder", Name = "binhoarder" } }
-			};
-		    using (var session = MartenStuff.Store.LightweightSession())
-		    {
-			    session.Store(profile);
+			using (var sr = new StreamReader(System.IO.File.OpenRead(@"C:\git\hack24\DBBackups\data.csv")))
+			using (var session = MartenStuff.Store.LightweightSession())
+			{
+				var profiles = new List<ProfileModel>();
+				while (!sr.EndOfStream)
+				{
+					var line = sr.ReadLine();
+					var split = line.Split(',');
+
+					var profile = new ProfileModel
+					{
+						Id = Guid.NewGuid(),
+						Bio =
+							"Emmental airedale queso. Cheese on toast smelly cheese st. agur blue cheese cauliflower cheese stinking bishop blue castello pepper jack bavarian bergkase.",
+						FirstName = split[0].Split(' ')[0],
+						LastName = split[0].Split(' ')[1],
+						JobTitle = split[3],
+						Tags = split[2].Split('|').Select(TagProvider.GetById).ToArray(),
+						ProfileImage = "Default.png",
+						Department = split[1]
+					};
+
+					session.Store(profile);
+				}
+				
 
 				session.SaveChanges();
-		    }
+			}
 
 			var json = Json(new { success = true });
 		    json.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
