@@ -3,27 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "hack24", ".", "{A46DEFD7-883F-40CA-A8A7-A9CE5CD626EC}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_52966"
-		Debug.AspNetCompiler.PhysicalPath = "..\hack24\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52966\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_52966"
-		Release.AspNetCompiler.PhysicalPath = "..\hack24\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52966\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "52966"
-		SlnRelativePath = "..\hack24\"
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hack24.core", "hack24.core\hack24.core.csproj", "{B784AD49-96CC-4198-A834-ED5E83CEAADA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hack24.web", "hack24.web\hack24.web.csproj", "{4BB81643-9605-4B39-8E86-C8696FFA77C8}"
@@ -34,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A46DEFD7-883F-40CA-A8A7-A9CE5CD626EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A46DEFD7-883F-40CA-A8A7-A9CE5CD626EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A46DEFD7-883F-40CA-A8A7-A9CE5CD626EC}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{A46DEFD7-883F-40CA-A8A7-A9CE5CD626EC}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{B784AD49-96CC-4198-A834-ED5E83CEAADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B784AD49-96CC-4198-A834-ED5E83CEAADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B784AD49-96CC-4198-A834-ED5E83CEAADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
