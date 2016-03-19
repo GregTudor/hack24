@@ -1,0 +1,28 @@
+﻿@model hack24.web.Resources.DiscoverIndexResource
+
+@{
+	ViewBag.Title = "Discover";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Discover</h2>
+<p>I'm looking for a...</p>
+@foreach (var tag in Model.PersonTypes) {
+
+	<div>@tag.DisplayName</div>
+}
+<hr/>
+<p>who is a...</p>
+@foreach (var tag in Model.Skills)
+{
+
+	<div>@tag.DisplayName</div>
+}
+
+<hr />
+<p>and is</p>
+@foreach (var tag in Model.Locations)
+{
+
+	<div>in @tag.DisplayName</div>
+}
