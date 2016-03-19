@@ -2,8 +2,11 @@ namespace hack24.core.Model
 {
     public class Tag
     {
-	    public Tag(string name, string displayName)
+	    public  int Id { get; set; }
+
+	    public Tag(string name, string displayName, int id)
 	    {
+		    this.Id = id;
 		    this.Name = name;
 		    this.DisplayName = displayName;
 	    }
