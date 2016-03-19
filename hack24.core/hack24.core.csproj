@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Data\MartenGateway.cs" />
+    <Compile Include="Data\MartenStuff.cs" />
     <Compile Include="Model\ProfileModel.cs" />
     <Compile Include="Model\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

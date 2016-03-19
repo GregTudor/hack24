@@ -1,0 +1,28 @@
+﻿@using hack24.web.Resources
+@model ProfileResource
+@{
+	ViewBag.Title = "Profile";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>View</h2>
+
+<p>@Model.FirstName</p>
+<p>@Model.LastName</p>
+<p>@Model.Bio</p>
+<p>@Model.JobTitle</p>
+<p>@Model.ProfileImage</p>
+<h5>Tags</h5>
+<ul>
+	@foreach (var tag in Model.Tags)
+	{
+		@tag.DisplayName
+	}
+</ul>
+<h5>Location Tags</h5>
+<ul>
+	@foreach (var tag in Model.LocationTags)
+	{
+		@tag.DisplayName
+	}
+</ul>
