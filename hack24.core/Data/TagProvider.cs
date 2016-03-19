@@ -37,7 +37,7 @@ namespace hack24.core.Data
 		{
 			new Tag("problemsolver", "Problem solver", 501),
 			new Tag("listener", "Problem solver", 502),
-			new Tag("communicator", "Problem solver"),
+			new Tag("communicator", "Communicator", 503),
 			new Tag("strategist", "Strategist", 504),
 			new Tag("risktaker", "Risk taker", 505),
 			new Tag("descisionmaker", "Decision maker", 506),

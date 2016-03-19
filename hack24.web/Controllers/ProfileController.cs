@@ -48,8 +48,8 @@ namespace hack24.web.Controllers
 				Bio = "Collector of bins extraordinaire.",
 				JobTitle = "Bin Master",
 				LastName = "Tubins",
-				LocationTags = new[] { new Tag {DisplayName = "Nottingham", Name = "nottm" } },
-				Tags = new[] { new Tag { DisplayName = "Bin Hoarder", Name = "binhoarder" } }
+				//LocationTags = new[] { new Tag {DisplayName = "Nottingham", Name = "nottm" } },
+				//Tags = new[] { new Tag { DisplayName = "Bin Hoarder", Name = "binhoarder" } }
 			};
 		    using (var session = MartenStuff.Store.LightweightSession())
 		    {
