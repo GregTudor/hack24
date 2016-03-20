@@ -5,10 +5,14 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<img class="profile-image" src="@Url.Content("~/Content/images/profile/" + Model.Primary.ProfileImage + ".jpg")" />
+<div class="profile-head">
+	<img class="profile-image" src="@Url.Content("~/Content/images/profile/" + Model.Primary.ProfileImage + ".jpg")" />
+	
+	<h2>@Model.Primary.FirstName @Model.Primary.LastName</h2>
+	<p>@Model.Primary.JobTitle</p>
+</div>
 
-<h2>@Model.Primary.FirstName @Model.Primary.LastName</h2>
-<p>@Model.Primary.JobTitle</p>
+
 <h3>Bio</h3>
 <p>@Model.Primary.Bio</p>
 

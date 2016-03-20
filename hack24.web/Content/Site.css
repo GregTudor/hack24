@@ -118,11 +118,12 @@ textarea {
 	color: #000;
 }
 
-
+.profile-head {
+	text-align: center;
+}
 footer {
 	text-align: center
 }
-
 .tag-data {
 	font-size: 18px;
 }
