@@ -5,7 +5,7 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<img class="profile-image" src="~/Content/images/profile/barry.jpg"/>
+<img class="profile-image" src="@Url.Content("~/Content/images/profile/" + Model.Primary.ProfileImage + ".jpg")" />
 
 <h2>@Model.Primary.FirstName @Model.Primary.LastName</h2>
 <p>@Model.Primary.JobTitle</p>
@@ -31,7 +31,8 @@
 		<div class="row">
 			@foreach (var alt in Model.Alternatives) {
 				<div class="col-xs-6">
-					<img class="profile-image" src="~/Content/images/profile/smug.jpg"/>
+					<img class="profile-image" src="@Url.Content("~/Content/images/profile/" + alt.ProfileImage + ".jpg")" />
+
 					<b><a href="@Url.Action("View","Profile",new {alt.Id})">@alt.FirstName @alt.LastName</a></b>
 				</div>
 			}
