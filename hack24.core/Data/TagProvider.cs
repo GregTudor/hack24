@@ -37,7 +37,7 @@ namespace hack24.core.Data
 			new Tag("crazycreative", "Crazy Creative", 11, "a"),
 			new Tag("digitaldynamo", "Digital Dynamo", 12, "a"),
 			new Tag("productfanatic", "Product Fanatic", 13, "a"),
-			new Tag("emailextrodinaire", "Email Extrodinaire", 14, "a"),
+			new Tag("emailextrodinaire", "Email Extraordinaire", 14, "a"),
 			new Tag("socialgenius", "Social Genius", 15, "a"),
 			new Tag("campaignwizard", "Campaign Wizard", 16, "a"),
 			new Tag("globalmarketeer", "Global Marketeer", 17, "a")
