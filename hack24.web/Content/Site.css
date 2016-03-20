@@ -105,7 +105,7 @@ textarea {
 
 }
 .alternatives {
-	background-color: #29a696;
+	background-color: #efefef;
 	padding: 20px;
 }
 .alternatives .profile-image {
@@ -121,4 +121,30 @@ textarea {
 
 footer {
 	text-align: center
+}
+
+.tag-data {
+	font-size: 18px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: ProximaNova;
+}
+
+.submit-search {
+	width: 50%;
+	margin: 0 auto;
+	height: 38px;
+	border-radius: 20px;
+	border: 2px solid #000;
+	background-color: #fff;
+	font-size: 16px;
+}
+
+.action-button {
+	width: 100%;
+	background-color: #fff;
+	color: #000;
+	font-size: 18px;
+	border: none;
 }

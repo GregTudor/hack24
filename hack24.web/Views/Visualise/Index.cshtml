@@ -1,13 +1,14 @@
 ﻿@model hack24.web.Resources.TagPopularityModel
 
 @{
-	ViewBag.Title = "title";
+	ViewBag.Title = "Competency Nebula";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>title</h2>
-
-@foreach (var tagdata in @Model.TagData) {
-
-	<a href="@Url.Action("ByTag", "Profile", new { tagdata.Key.Name})">@tagdata.Key.DisplayName (@tagdata.Value)</a>
-}
+<h2 style="text-align: center; margin: 30px 0;">Competency Nebula</h2>
+<div class="tag-data">
+	@foreach (var tagdata in @Model.TagData)
+	{
+		<a href="@Url.Action("ByTag", "Profile", new { tagdata.Key.Name})">@tagdata.Key.DisplayName (@tagdata.Value)</a><span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+	}
+</div>

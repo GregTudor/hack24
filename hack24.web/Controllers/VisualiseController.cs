@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Helpers;
+using System.Web.Mvc;
 using hack24.core.Service;
 using hack24.web.Resources;
 
@@ -24,5 +26,15 @@ namespace hack24.web.Controllers
 			};
             return View(resource);
         }
+
+		[HttpGet]
+	    public ActionResult GetTagJson()
+	    {
+			var tags = this.discoveryService.TagUsage();
+			var jsonResult = Json (new { Data = tags.Select(x => new { text = x.Key.DisplayName, weight = x.Value }) } );
+			jsonResult.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+
+			return jsonResult;
+	    }
     }
 }
