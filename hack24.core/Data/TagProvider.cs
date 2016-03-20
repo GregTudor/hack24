@@ -12,66 +12,66 @@ namespace hack24.core.Data
 
 		public static IEnumerable<Tag> Locations = new[]
 		{
-			new Tag("unitedkingdom", "United Kingdom", 100),
-			new Tag("unitedstatesofamerica", "United States of America", 101),
-			new Tag("australia", "Australia", 102),
-			new Tag("narnia", "Narnia", 103),
-			new Tag("nottingham", "Nottingham", 104),
-			new Tag("newyork", "New York", 105),
-			new Tag("sydney", "Sydney", 106),
-			new Tag("aslandia", "Aslandia", 107)
+			new Tag("unitedkingdom", "United Kingdom", 100, "in the"),
+			new Tag("unitedstatesofamerica", "USA", 101, "in the"),
+			new Tag("australia", "Australia", 102, "in"),
+			new Tag("narnia", "Narnia", 103, "in"),
+			new Tag("nottingham", "Nottingham", 104, "in"),
+			new Tag("newyork", "New York", 105, "in"),
+			new Tag("sydney", "Sydney", 106, "in"),
+			new Tag("aslandia", "Aslandia", 107, "in")
 		};
 
 		public static IEnumerable<Tag> PersonTypes = new[]
 		{
-			new Tag("softwaregeek", "Software Geek", 1), //
-			new Tag("computerguru", "Computer Guru", 2),
-			new Tag("talentsourcerer", "Talent Sourcerer", 3),
-			new Tag("hrhero", "HR Hero", 4),
-			new Tag("payslippaladin", "Payslip Paladin", 5),
-			new Tag("moneymaker", "Money Maker", 8),
-			new Tag("partnerhunter", "Partner Hunter", 7),
-			new Tag("talentmaster", "Talent Master", 6), //alien head
-			new Tag("numbercruncher", "Number Cruncher", 9),
-			new Tag("warriorofjustice", "Warrior Of Justice", 10),
-			new Tag("crazycreative", "Crazy Creative", 11),
-			new Tag("digitaldynamo", "Digital Dynamo", 12),
-			new Tag("productfanatic", "Product Fanatic", 13),
-			new Tag("emailextrodinaire", "Email Extrodinaire", 14),
-			new Tag("socialgenius", "Social Genius", 15),
-			new Tag("campaignwizard", "Campaign Wizard", 16),
-			new Tag("globalmarketeer", "Global Marketeer", 17)
+			new Tag("softwaregeek", "Software Geek", 1, "a"), //
+			new Tag("computerguru", "Computer Guru", 2, "a"),
+			new Tag("talentsourcerer", "Talent Sourcerer", 3, "a"),
+			new Tag("hrhero", "HR Hero", 4, "an"),
+			new Tag("payslippaladin", "Payslip Paladin", 5, "a"),
+			new Tag("moneymaker", "Money Maker", 8, "a"),
+			new Tag("partnerhunter", "Partner Hunter", 7, "a"),
+			new Tag("talentmaster", "Talent Master", 6, "a"), //alien head
+			new Tag("numbercruncher", "Number Cruncher", 9, "a"),
+			new Tag("warriorofjustice", "Warrior Of Justice", 10, "a"),
+			new Tag("crazycreative", "Crazy Creative", 11, "a"),
+			new Tag("digitaldynamo", "Digital Dynamo", 12, "a"),
+			new Tag("productfanatic", "Product Fanatic", 13, "a"),
+			new Tag("emailextrodinaire", "Email Extrodinaire", 14, "a"),
+			new Tag("socialgenius", "Social Genius", 15, "a"),
+			new Tag("campaignwizard", "Campaign Wizard", 16, "a"),
+			new Tag("globalmarketeer", "Global Marketeer", 17, "a")
 		};
 
 		public static IEnumerable<Tag> Skills = new[]
 		{
-			new Tag("problemsolver", "Problem solver", 501),
-			new Tag("listener", "Listener", 502),
-			new Tag("communicator", "Communicator", 503),
-			new Tag("strategist", "Strategist", 504),
-			new Tag("risktaker", "Risk Taker", 505),
-			new Tag("descisionmaker", "Decision Maker", 506),
-			new Tag("collaborator", "Collaborator", 507),
-			new Tag("planner", "Planner", 508),
-			new Tag("organiser", "Organiser", 509),
-			new Tag("planner", "Planner", 510),
-			new Tag("briefmaker", "Brief Maker", 511),
-			new Tag("officesupplier", "Office Supplier", 512),
-			new Tag("creativeproblemsolver", "Creative problem solver",513),
-			new Tag("helper", "Helper", 513),
-			new Tag("inspirer", "Inspirer", 514),
-			new Tag("synergiser", "Synergiser", 515),
-			new Tag("visionary", "Visionary", 516),
-			new Tag("prioritiser", "Prioritiser", 517),
-			new Tag("cheerleader", "Cheerleader", 518),
-			new Tag("customerdelighter", "Customer Delighter", 519),
-			new Tag("realist", "Realist", 520),
-			new Tag("entrepreneural", "Entrepreneural", 521),
-			new Tag("futurist", "Futurist", 522),
-			new Tag("technologist", "Technologist", 523),
-			new Tag("technologist", "Technologist", 524),
-			new Tag("explainer", "Explainer", 525),
-			new Tag("teacher", "Teacher", 526)
+			new Tag("problemsolver", "Problem solver", 501, "a"),
+			new Tag("listener", "Listener", 502, "a"),
+			new Tag("communicator", "Communicator", 503, "a"),
+			new Tag("strategist", "Strategist", 504, "a"),
+			new Tag("risktaker", "Risk Taker", 505, "a"),
+			new Tag("descisionmaker", "Decision Maker", 506, "a"),
+			new Tag("collaborator", "Collaborator", 507, "a"),
+			new Tag("planner", "Planner", 508, "a"),
+			new Tag("organiser", "Organiser", 509, "an"),
+			new Tag("planner", "Planner", 510, "a"),
+			new Tag("briefmaker", "Brief Maker", 511, "a"),
+			new Tag("officesupplier", "Office Supplier", 512, "an"),
+			new Tag("creativeproblemsolver", "Creative problem solver",513, "a"),
+			new Tag("helper", "Helper", 513, "a"),
+			new Tag("inspirer", "Inspirer", 514, "an"),
+			new Tag("synergiser", "Synergiser", 515, "a"),
+			new Tag("visionary", "Visionary", 516, "a"),
+			new Tag("prioritiser", "Prioritiser", 517, "a"),
+			new Tag("cheerleader", "Cheerleader", 518, "a"),
+			new Tag("customerdelighter", "Customer Delighter", 519, "a"),
+			new Tag("realist", "Realist", 520, "a"),
+			new Tag("entrepreneural", "Entrepreneural", 521, ""),
+			new Tag("futurist", "Futurist", 522, "a"),
+			new Tag("technologist", "Technologist", 523, "a"),
+			new Tag("technologist", "Technologist", 524, "a"),
+			new Tag("explainer", "Explainer", 525, "an"),
+			new Tag("teacher", "Teacher", 526, "a")
 		};
 
 		public static Tag GetById(string id)
@@ -79,7 +79,7 @@ namespace hack24.core.Data
 			var intId = Convert.ToInt32(id);
 			var tag = All.FirstOrDefault(_ => _.Id == intId);
 
-			return tag ?? new Tag("Oops", "Oops", 1000);
+			return tag ?? new Tag("Oops", "Oops", 1000, "a ");
 		}
 	}
 }

@@ -22,9 +22,8 @@ namespace hack24.web.Controllers
 		{
 			var resource = new DiscoverIndexResource
 			{
-				Locations = TagProvider.Locations,
 				PersonTypes = TagProvider.PersonTypes.OrderBy(x => Guid.NewGuid()),
-				Skills = TagProvider.Skills.OrderBy(x => Guid.NewGuid())
+				Skills = TagProvider.Skills.Union(TagProvider.Locations).OrderBy(x => Guid.NewGuid())
 			};
 
 			return this.View(resource);

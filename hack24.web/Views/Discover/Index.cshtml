@@ -5,34 +5,62 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Discover</h2>
-<p>I'm looking for a...</p>
-<div class="row">
-@foreach (var tag in Model.PersonTypes)
-{
-	<div class="col-xs-6">
-		<div class="icon-tag">
-			<img src="@("Content/images/" +tag.Name +".png")" />
-			<p>@tag.DisplayName</p>
+<div class="person-types-container">
+	<h2>Discover</h2>
+	<p>I'm looking for a...</p>
+	<div class="row">
+		@foreach (var tag in Model.PersonTypes)
+		{
+			<div class="col-xs-6">
+				<div class="icon-tag" data-tag-id="@tag.Id">
+					<img src="@("Content/images/" + tag.Name + ".png")" />
+					<p>@tag.DisplayName</p> 
+				</div>
+			</div>
+		}
+	</div>
+</div>
+
+<div class="skills-container">
+	<p>Who is..</p>
+	@foreach (var tag in Model.Skills)
+	{
+		<div class="skill-tag" data-tag-id="@tag.Id">@tag.Prefix @tag.DisplayName</div>
+	}
+
+	<div class="col-xs-12">
+		<div class="submit-search">
+			Submit 
 		</div>
 	</div>
-}
 </div>
 
 
+@section scripts {
+	<script>
+		$(function() {
+			$(".skill-tag").on("click", function(e) {
+				$(this).addClass("skill-tag-selected");
+			});
 
-<hr/>
-<p>who is a...</p>
-@foreach (var tag in Model.Skills)
-{
+			$(".icon-tag").on("click", function() {
+				$("body").data("person-tag-id", $(this).data("tag-id"));
 
-	<div>@tag.DisplayName</div>
-}
+				$(".person-types-container").fadeOut(500, function() {
+					$(".skills-container").fadeIn(500);
+				});
+			});
 
-<hr />
-<p>and is</p>
-@foreach (var tag in Model.Locations)
-{
+			$(".submit-search").on("click", function() {
+				var skillsSelected = $(".skill-tag-selected").map(function() {
+					return $(this).data("tag-id");
+				})
+				.get();
 
-	<div>in @tag.DisplayName</div>
+				skillsSelected.push($("body").data("person-tag-id"));
+
+				skillsSelected = skillsSelected.join("|");
+			});
+		});
+	</script>
 }
