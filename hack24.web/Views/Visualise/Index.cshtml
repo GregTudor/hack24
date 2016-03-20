@@ -6,9 +6,9 @@
 }
 
 <h2 style="text-align: center; margin: 30px 0;">Competency Nebula</h2>
-<div class="tag-data">
+<div class="tag-data" >
 	@foreach (var tagdata in @Model.TagData)
 	{
-		<a href="@Url.Action("ByTag", "Profile", new { tagdata.Key.Name})">@tagdata.Key.DisplayName (@tagdata.Value)</a><span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+		<a style="color: #2aa696;" href="@Url.Action("ByTag", "Profile", new { tagdata.Key.Name})">@tagdata.Key.DisplayName (@tagdata.Value)</a><span style="color: #000;">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
 	}
 </div>

@@ -10,7 +10,7 @@
 
 	<div>
 		<img class="profile-image-small" src="@Url.Content("~/Content/images/profile/" + p.ProfileImage + ".jpg")" />
-		<b><a href="@Url.Action("View", "Profile", new { p.Id })">@p.FirstName @p.LastName</a></b> - @p.JobTitle
+		<b><a style="color: #2aa696;" href="@Url.Action("View", "Profile", new { p.Id })">@p.FirstName @p.LastName</a></b> - @p.JobTitle
 	</div>
 	<hr/>
 }
