@@ -7,18 +7,20 @@
 
 <h2>Profile</h2>
 
-<img src="~/Images/ProfileImages/@Model.ProfileImage"/>
+<img src="~/Images/ProfileImages/@Model.Primary.ProfileImage"/>
 <h3>Name</h3>
-<p>@Model.FirstName @Model.LastName</p>
+<p>@Model.Primary.FirstName @Model.Primary.LastName</p>
 <h3>Job Title</h3>
-<p>@Model.JobTitle</p>
+<p>@Model.Primary.JobTitle</p>
 <h3>Bio</h3>
-<p>@Model.Bio</p>
+<p>@Model.Primary.Bio</p>
 
 <h3>Tags</h3>
 <div class="col-xs-12">
-	@foreach (var tag in Model.Tags)
-	{
+	@foreach (var tag in Model.Primary.Tags) {
 		<div class="skill-tag">@tag.DisplayName</div>
 	}
 </div>
+
+<hr/>
+@if(Model.Alternatives.Any())

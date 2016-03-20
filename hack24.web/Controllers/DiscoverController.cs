@@ -28,15 +28,5 @@ namespace hack24.web.Controllers
 
 			return this.View(resource);
 		}
-
-		[HttpGet]
-		public ActionResult test(string id)
-		{
-			var tagids = id.Split('|').Select(x=>int.Parse(x)).ToArray();
-			var profile = this.discoveryService.GetMatches(tagids);
-
-
-			return this.RedirectToAction("view","profile", new { profile.Id});
-		}
 	}
 }

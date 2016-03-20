@@ -6,13 +6,21 @@ using System.Web;
 using System.Web.Mvc;
 using hack24.core.Data;
 using hack24.core.Model;
+using hack24.core.Service;
 using hack24.web.Resources;
 
 namespace hack24.web.Controllers
 {
     public class ProfileController : Controller
     {
-        // GET: Profile
+	    private DiscoveryService discoveryService;
+
+	    public ProfileController()
+	    {
+			this.discoveryService = new DiscoveryService();
+		}
+
+	    // GET: Profile
         public ActionResult Index()
         {
             return View();
@@ -30,17 +38,27 @@ namespace hack24.web.Controllers
 
 			    return View(new ProfileResource
 			    {
-					Id = profile.Id,
-					Bio = profile.Bio,
-					FirstName = profile.FirstName,
-					JobTitle = profile.JobTitle,
-					LastName = profile.LastName,
-					Tags = profile.Tags
+					Primary = profile
 				});
 		    }
 	    }
 
-	    public ActionResult Fist()
+
+		public ActionResult Suggested(string id)
+		{
+			var tagids = id.Split('|').Select(x => int.Parse(x)).ToArray();
+			var profiles = this.discoveryService.GetMatches(tagids);
+
+			return View("View",new ProfileResource
+			{
+				Primary = profiles.ElementAt(0),
+				Alternatives = profiles.Skip(1)
+
+			});
+
+
+		}
+		public ActionResult Fist()
 	    {
 			using (var sr = new StreamReader(System.IO.File.OpenRead(@"C:\git\hack24\DBBackups\data.csv")))
 			using (var session = MartenStuff.Store.LightweightSession())

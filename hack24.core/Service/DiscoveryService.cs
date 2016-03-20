@@ -16,7 +16,7 @@ namespace hack24.core.Service
 			
 		}
 
-		public ProfileModel GetMatches(int[] tagids)
+		public IEnumerable<ProfileModel> GetMatches(int[] tagids)
 		{
 			var dict = new Dictionary< ProfileModel, int>();
 			using (var session = MartenStuff.Store.LightweightSession())
@@ -34,7 +34,7 @@ namespace hack24.core.Service
 
 				var t = dict.OrderByDescending(x => x.Value);
 
-				return t.First().Key;
+				return t.Take(4).Select(x=>x.Key);
 
 
 
