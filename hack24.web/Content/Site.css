@@ -58,3 +58,8 @@ textarea {
 .skills-container {
 	display: none;
 }
+
+.tag-container h2 {
+	margin: 40px;
+	text-align: center;
+}

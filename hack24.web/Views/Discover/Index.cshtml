@@ -5,9 +5,8 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="person-types-container">
-	<h2>Discover</h2>
-	<p>I'm looking for a...</p>
+<div class="person-types-container tag-container">
+	<h2>I'm looking for someone...</h2>
 	<div class="row">
 		@foreach (var tag in Model.PersonTypes)
 		{
@@ -21,8 +20,8 @@
 	</div>
 </div>
 
-<div class="skills-container">
-	<p>Who is..</p>
+<div class="skills-container tag-container">
+	<h2>Who is...</h2>
 	@foreach (var tag in Model.Skills)
 	{
 		<div class="skill-tag" data-tag-id="@tag.Id">@tag.Prefix @tag.DisplayName</div>
@@ -40,7 +39,7 @@
 	<script>
 		$(function() {
 			$(".skill-tag").on("click", function(e) {
-				$(this).addClass("skill-tag-selected");
+				$(this).toggleClass("skill-tag-selected");
 			});
 
 			$(".icon-tag").on("click", function() {
@@ -61,7 +60,7 @@
 
 				skillsSelected = skillsSelected.join("|");
 
-				$.post("/profile/suggested", skillsSelected);
+				$.post(@Html.Action("Suggested", "Profile"), skillsSelected);
 			});
 		});
 	</script>
