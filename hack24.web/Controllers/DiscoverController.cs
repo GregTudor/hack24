@@ -9,7 +9,7 @@ namespace hack24.web.Controllers
 {
 	public class DiscoverController : Controller
 	{
-		private DiscoveryService discoveryService;
+		private readonly DiscoveryService discoveryService;
 
 		public DiscoverController()
 		{
@@ -30,15 +30,14 @@ namespace hack24.web.Controllers
 			return this.View(resource);
 		}
 
-		[HttpPost]
-		public ActionResult Index(DiscoverIndexResource resource)
+		[HttpGet]
+		public ActionResult test(string id)
 		{
-			var tagids = new[] { 1, 13, 506 };
-			this.discoveryService.GetMatches(tagids);
+			var tagids = id.Split('|').Select(x=>int.Parse(x)).ToArray();
+			var profile = this.discoveryService.GetMatches(tagids);
 
 
-			var id = new Guid();
-			return Redirect("/profile/view/"+id);
+			return this.RedirectToAction("view","profile", new { profile.Id});
 		}
 	}
 }
