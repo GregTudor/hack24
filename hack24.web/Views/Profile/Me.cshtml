@@ -5,10 +5,12 @@
 	ViewBag.Title = "Profile";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<img class="profile-image" src="@Url.Content("~/Content/images/profile/" + @Model.Primary.ProfileImage + ".jpg")"/>
+<div class="profile-head">
+	<img class="profile-image" src="@Url.Content("~/Content/images/profile/" + @Model.Primary.ProfileImage + ".jpg")" />
 
-<h2>@Model.Primary.FirstName @Model.Primary.LastName</h2>
-<p>@Model.Primary.JobTitle</p>
+	<h2>@Model.Primary.FirstName @Model.Primary.LastName</h2>
+	<p>@Model.Primary.JobTitle</p>
+</div>
 <div class="alternatives">
 	<div class="row">
 
@@ -33,7 +35,7 @@
 	</div>
 </div>
 
-<h3>Tags</h3>
+<h3 style="text-align: center;">Tags</h3>
 <div class="col-xs-12">
 	@foreach (var tag in Model.Primary.Tags) {
 		<div class="skill-tag">@tag.DisplayName</div>
