@@ -236,6 +236,7 @@
     <Content Include="Content\images\partnerhunter.png" />
     <Content Include="Content\images\payslippaladin.png" />
     <Content Include="Content\images\productfanatic.png" />
+    <Content Include="Content\images\profile\barry.jpg" />
     <Content Include="Content\images\profile\smug.jpg" />
     <Content Include="Content\images\softwaregeek.png" />
     <Content Include="Content\images\talentmaster.png" />

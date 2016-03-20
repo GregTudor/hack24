@@ -41,6 +41,23 @@ namespace hack24.web.Controllers
 				});
 			}
 		}
+		public ActionResult Me()
+		{
+
+			using (var session = MartenStuff.Store.LightweightSession())
+			{
+				var profile = session.Query<ProfileModel>().Single(x => x.Id == new Guid("018b2e28-a971-428d-9b1f-f7d07f716a03"));
+				if (profile == null)
+				{
+					return new HttpNotFoundResult();
+				}
+
+				return this.View("View", new ProfileResource
+				{
+					Primary = profile
+				});
+			}
+		}
 
 		[HttpPost]
 		public ActionResult Suggested(string id)
