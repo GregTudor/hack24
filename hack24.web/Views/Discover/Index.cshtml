@@ -47,7 +47,8 @@
 			$(".icon-tag").on("click", function() {
 				$("body").data("person-tag-id", $(this).data("tag-id"));
 
-				$(".person-types-container").fadeOut(500, function() {
+				$(".person-types-container").fadeOut(500, function () {
+					window.scrollTo(0,0);
 					$(".skills-container").fadeIn(500);
 				});
 			});
