@@ -40,14 +40,15 @@ textarea {
 .skill-tag {
 	display: inline-block;
 	width: 47%;
-	height: 31px;
-	line-height: 31px;
+	height: 46px;
+	line-height: 46px;
 	padding: 0 10px;
 	background-color: #16f3c2;
 	border-radius: 31px;
 	color: #000;
 	margin: 5px 5px;
 	text-align: center;
+	font-size: 14px;
 }
 
 .skill-tag-selected {

@@ -60,6 +60,8 @@
 				skillsSelected.push($("body").data("person-tag-id"));
 
 				skillsSelected = skillsSelected.join("|");
+
+				$.post("/profile/suggested", skillsSelected);
 			});
 		});
 	</script>
