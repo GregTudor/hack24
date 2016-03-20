@@ -14,19 +14,19 @@
 <div class="alternatives">
 	<div class="row">
 
-		<div class="col-xs-4">
+		<div class="col-xs-4" style="text-align: center;">
 			<img class="profile-image" src="@Url.Content("~/Content/images/profile/" + @Model.LineManager.ProfileImage +".jpg")" />
 			<b><a href="@Url.Action("View", "Profile", new { Model.LineManager.Id })">@Model.LineManager.FirstName @Model.LineManager.LastName</a></b>
 			is my line manager
 		</div>
 
-		<div class="col-xs-4">
+		<div class="col-xs-4" style="text-align: center;">
 			<img class="profile-image" src="@Url.Content("~/Content/images/profile/" + @Model.HolidayApprover.ProfileImage +".jpg")" />
 			<b><a href="@Url.Action("View", "Profile", new { Model.HolidayApprover.Id })">@Model.HolidayApprover.FirstName @Model.HolidayApprover.LastName</a></b>
 			approves holidays
 		</div>
 
-		<div class="col-xs-4">
+		<div class="col-xs-4" style="text-align: center;">
 			<img class="profile-image" src="@Url.Content("~/Content/images/profile/" + @Model.PayManager.ProfileImage +".jpg")" />
 			<b><a href="@Url.Action("View", "Profile", new { Model.PayManager.Id })">@Model.PayManager.FirstName @Model.PayManager.LastName</a></b>
 			handles payroll
