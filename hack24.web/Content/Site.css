@@ -69,3 +69,14 @@ textarea {
 	width: 150px;
 	margin-top: -40px;
 }
+
+.alternatives {
+	background-color: #29a696;
+	padding: 20px;
+}
+.alternatives .profile-image {
+	border-radius: 50%;
+	height: 75px;
+	width: 75px;
+	margin-top: 0px;
+}

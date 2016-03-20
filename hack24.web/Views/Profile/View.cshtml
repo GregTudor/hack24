@@ -26,5 +26,14 @@
 
 <hr/>
 @if (Model.Alternatives.Any()) {
-	
+	<div class="alternatives">
+		<div class="row">
+			@foreach (var alt in Model.Alternatives) {
+				<div class="col-xs-6">
+					<img class="profile-image" src="~/Content/images/profile/smug.jpg"/>
+					@alt.FirstName @alt.LastName
+				</div>
+			}
+		</div>
+	</div>
 }
