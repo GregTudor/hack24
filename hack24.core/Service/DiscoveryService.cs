@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using hack24.core.Data;
 using hack24.core.Model;
 
@@ -11,14 +7,9 @@ namespace hack24.core.Service
 {
 	public class DiscoveryService
 	{
-		public DiscoveryService()
-		{
-			
-		}
-
 		public IEnumerable<ProfileModel> GetMatches(int[] tagids)
 		{
-			var dict = new Dictionary< ProfileModel, int>();
+			var dict = new Dictionary<ProfileModel, int>();
 			using (var session = MartenStuff.Store.LightweightSession())
 			{
 				var profiles = session.Query<ProfileModel>().ToArray();
@@ -34,10 +25,25 @@ namespace hack24.core.Service
 
 				var t = dict.OrderByDescending(x => x.Value);
 
-				return t.Take(4).Select(x=>x.Key);
+				return t.Take(4).Select(x => x.Key);
+			}
+		}
+
+		public IOrderedEnumerable<KeyValuePair<Tag, int>> TagUsage()
+		{
+			var list = new List<Tag>();
+
+			using (var session = MartenStuff.Store.LightweightSession())
+			{
+				var profiles = session.Query<ProfileModel>().ToArray();
+
+				foreach (var profileModel in profiles)
+					list.InsertRange(0, profileModel.Tags);
+
+				var d = list.GroupBy(x => x.Id).ToDictionary(x => list.First(y => y.Id == x.Key), x => x.Count());
 
 
-
+				return d.OrderByDescending(x=>x.Value);
 			}
 		}
 	}

@@ -28,9 +28,11 @@
 	}
 
 	<div class="col-xs-12">
-		<div class="submit-search">
-			Submit 
-		</div>
+		<form action="@Url.Action("Suggested", "Profile")" method="post">
+			<button class="submit-search">
+				Submit
+			</button>
+		</form>
 	</div>
 </div>
 
@@ -50,7 +52,9 @@
 				});
 			});
 
-			$(".submit-search").on("click", function() {
+			$(".submit-search").on("click", function (e) {
+				e.preventDefault();
+
 				var skillsSelected = $(".skill-tag-selected").map(function() {
 					return $(this).data("tag-id");
 				})
@@ -59,8 +63,12 @@
 				skillsSelected.push($("body").data("person-tag-id"));
 
 				skillsSelected = skillsSelected.join("|");
+				console.log(skillsSelected);
 
-				$.post(@Html.Action("Suggested", "Profile"), skillsSelected);
+				var a = $('form').attr("action") + "/" + skillsSelected;
+				$('form').attr('action', a);
+				$('form').submit();
+
 			});
 		});
 	</script>

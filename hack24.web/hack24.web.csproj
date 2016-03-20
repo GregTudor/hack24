@@ -217,7 +217,9 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\DiscoverIndexResource.cs" />
+    <Compile Include="Resources\ProfileListResource.cs" />
     <Compile Include="Resources\ProfileResource.cs" />
+    <Compile Include="Resources\TagPopularityModel.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -234,7 +236,8 @@
     <Content Include="Content\images\partnerhunter.png" />
     <Content Include="Content\images\payslippaladin.png" />
     <Content Include="Content\images\productfanatic.png" />
-    <Content Include="Content\images\softwaremonkey.png" />
+    <Content Include="Content\images\profile\smug.jpg" />
+    <Content Include="Content\images\softwaregeek.png" />
     <Content Include="Content\images\talentmaster.png" />
     <Content Include="Content\images\talentsourcerer.png" />
     <Content Include="Content\images\trumpet.png" />
@@ -299,10 +302,11 @@
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\View.cshtml" />
     <Content Include="Views\Discover\Index.cshtml" />
+    <Content Include="Views\Profile\ByTag.cshtml" />
+    <None Include="Views\Visualise\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Visualise\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

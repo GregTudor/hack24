@@ -1,0 +1,13 @@
+﻿@model hack24.web.Resources.TagPopularityModel
+
+@{
+	ViewBag.Title = "title";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>title</h2>
+
+@foreach (var tagdata in @Model.TagData) {
+
+	<a href="@Url.Action("ByTag", "Profile", new { tagdata.Key.Name})">@tagdata.Key.DisplayName (@tagdata.Value)</a>
+}

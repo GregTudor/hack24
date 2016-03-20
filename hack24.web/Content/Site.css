@@ -63,3 +63,9 @@ textarea {
 	margin: 40px;
 	text-align: center;
 }
+.profile-image {
+	border-radius: 50%;
+	height: 150px;
+	width: 150px;
+	margin-top: -40px;
+}

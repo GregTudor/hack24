@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using hack24.core.Data;
 using hack24.core.Model;
@@ -11,55 +10,68 @@ using hack24.web.Resources;
 
 namespace hack24.web.Controllers
 {
-    public class ProfileController : Controller
-    {
-	    private DiscoveryService discoveryService;
+	public class ProfileController : Controller
+	{
+		private readonly DiscoveryService discoveryService;
 
-	    public ProfileController()
-	    {
+		public ProfileController()
+		{
 			this.discoveryService = new DiscoveryService();
 		}
 
-	    // GET: Profile
-        public ActionResult Index()
-        {
-            return View();
-        }
+		// GET: Profile
+		public ActionResult Index()
+		{
+			return this.View();
+		}
 
-	    public ActionResult View(Guid id)
-		{ 
-		    using (var session = MartenStuff.Store.LightweightSession())
-		    {
-			    var profile = session.Query<ProfileModel>().Single(x => x.Id == id);
-			    if (profile == null)
-			    {
-				    return new HttpNotFoundResult();
-			    }
+		public ActionResult View(Guid id)
+		{
+			using (var session = MartenStuff.Store.LightweightSession())
+			{
+				var profile = session.Query<ProfileModel>().Single(x => x.Id == id);
+				if (profile == null)
+				{
+					return new HttpNotFoundResult();
+				}
 
-			    return View(new ProfileResource
-			    {
+				return this.View(new ProfileResource
+				{
 					Primary = profile
 				});
-		    }
-	    }
+			}
+		}
 
-
+		[HttpPost]
 		public ActionResult Suggested(string id)
 		{
 			var tagids = id.Split('|').Select(x => int.Parse(x)).ToArray();
 			var profiles = this.discoveryService.GetMatches(tagids);
 
-			return View("View",new ProfileResource
+			return this.View("View", new ProfileResource
 			{
 				Primary = profiles.ElementAt(0),
 				Alternatives = profiles.Skip(1)
-
 			});
-
-
 		}
+
+		public ActionResult ByTag(string name)
+		{
+			using (var session = MartenStuff.Store.LightweightSession())
+			{
+				var profiles = session.Query<ProfileModel>().Where(x => x.Tags.Any(y=>y.Name== name)).ToArray();
+				
+
+				return this.View(new ProfileListResource
+				{
+					Tag = name,
+					Profiles = profiles
+				});
+			}
+		}
+
 		public ActionResult Fist()
-	    {
+		{
 			using (var sr = new StreamReader(System.IO.File.OpenRead(@"C:\git\hack24\DBBackups\data.csv")))
 			using (var session = MartenStuff.Store.LightweightSession())
 			{
@@ -84,14 +96,14 @@ namespace hack24.web.Controllers
 
 					session.Store(profile);
 				}
-				
+
 
 				session.SaveChanges();
 			}
 
-			var json = Json(new { success = true });
-		    json.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+			var json = this.Json(new { success = true });
+			json.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
 			return json;
-	    }
-    }
+		}
+	}
 }

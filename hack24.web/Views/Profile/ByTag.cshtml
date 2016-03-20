@@ -1,0 +1,16 @@
+﻿@model hack24.web.Resources.ProfileListResource
+
+@{
+	ViewBag.Title = "title";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>By Tag - @Model.Tag</h2>
+@foreach (var p in Model.Profiles) {
+
+	<div>
+		<b><a href="@Url.Action("View","Profile",new {p.Id})">@p.FirstName @p.LastName</a></b>
+		<p>@p.JobTitle</p>
+	</div>
+	<hr/>
+}
