@@ -47,14 +47,20 @@ namespace hack24.web.Controllers
 			using (var session = MartenStuff.Store.LightweightSession())
 			{
 				var profile = session.Query<ProfileModel>().Single(x => x.Id == new Guid("018b2e28-a971-428d-9b1f-f7d07f716a03"));
+				var holidayApprover = session.Query<ProfileModel>().Single(x => x.Id == new Guid("018b2e28-a971-428d-9b1f-f7d07f716a03"));
+				var lineManager = session.Query<ProfileModel>().Single(x => x.Id == new Guid("018b2e28-a971-428d-9b1f-f7d07f716a03"));
+				var payManger = session.Query<ProfileModel>().Single(x => x.Id == new Guid("018b2e28-a971-428d-9b1f-f7d07f716a03"));
 				if (profile == null)
 				{
 					return new HttpNotFoundResult();
 				}
 
-				return this.View("View", new ProfileResource
+				return this.View(new ProfileResource
 				{
-					Primary = profile
+					Primary = profile,
+					HolidayApprover = holidayApprover,
+					LineManager = lineManager,
+					PayManager = payManger
 				});
 			}
 		}

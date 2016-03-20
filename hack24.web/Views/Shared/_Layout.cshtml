@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - MYOBiWAN</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -17,29 +17,29 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+			@*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
 		</div>
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 				
 				<li><a href="@Url.Action("Me","Profile")">Me</a></li>
 				<li><a href="@Url.Action("Index","Discover")">Discover</a></li>
-				<li><a href="@Url.Action("Index","visualise")">visualise</a></li>
+				<li><a href="@Url.Action("Index","visualise")">Visualise</a></li>
 
 			</ul>
-			@Html.Partial("_LoginPartial")
+			
 		</div>
 	</div>
 </div>
 	<div class="page-header1">
-		header
+		MYOBiWAN
 	</div>
 <div class="container body-content">
 
 	@RenderBody()
 	<hr/>
 	<footer>
-		<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+		<p>&copy; @DateTime.Now.Year - a UNiDAYS-of-THuNDER Production</p>
 	</footer>
 </div>
 

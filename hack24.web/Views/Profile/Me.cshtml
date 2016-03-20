@@ -1,0 +1,43 @@
+﻿@using hack24.web.Resources
+@model ProfileResource
+@{
+	ViewBag.Title = "Profile";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<img class="profile-image" src="~/Content/images/profile/barry.jpg"/>
+
+<h2>@Model.Primary.FirstName @Model.Primary.LastName</h2>
+<p>@Model.Primary.JobTitle</p>
+<div class="alternatives">
+	<div class="row">
+
+		<div class="col-xs-4">
+			<img class="profile-image" src="~/Content/images/profile/smug.jpg"/>
+			<b><a href="@Url.Action("View", "Profile", new { Model.LineManager.Id })">@Model.LineManager.FirstName @Model.LineManager.LastName</a></b>
+			is my line manager
+		</div>
+
+		<div class="col-xs-4">
+			<img class="profile-image" src="~/Content/images/profile/smug.jpg"/>
+			<b><a href="@Url.Action("View", "Profile", new { Model.HolidayApprover.Id })">@Model.HolidayApprover.FirstName @Model.HolidayApprover.LastName</a></b>
+			approves holidays
+		</div>
+
+		<div class="col-xs-4">
+			<img class="profile-image" src="~/Content/images/profile/smug.jpg" />
+			<b><a href="@Url.Action("View", "Profile", new { Model.PayManager.Id })">@Model.PayManager.FirstName @Model.PayManager.LastName</a></b>
+			handles payroll
+		</div>
+
+	</div>
+</div>
+
+<h3>Tags</h3>
+<div class="col-xs-12">
+	@foreach (var tag in Model.Primary.Tags) {
+		<div class="skill-tag">@tag.DisplayName</div>
+	}
+</div>
+
+

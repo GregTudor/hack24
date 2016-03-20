@@ -8,6 +8,9 @@ namespace hack24.web.Resources
 	{ 
 		public ProfileModel Primary { get; set; }
 		public IEnumerable<ProfileModel> Alternatives { get; set; }
+		public ProfileModel HolidayApprover { get; set; }
+		public ProfileModel LineManager { get; set; }
+		public ProfileModel PayManager { get; set; }
 
 		public ProfileResource()
 		{

@@ -1,6 +1,20 @@
-﻿body {
+﻿@font-face {
+    font-family: ProximaNova;
+    src: url(fonts/ProximaNova-Regular.otf);
+}
+@font-face {
+    font-family: ProximaNova-bold;
+    src: url(fonts/ProximaNova-Bold.otf);
+}
+@font-face {
+    font-family: bebase;
+    src: url(fonts/BebasNeueBold.otf);
+}
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
+	font-family: ProximaNova-Bold;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -28,9 +42,11 @@ textarea {
 	text-align: center;
 	font-size: 48px;
 	padding-top: 10px;
+	font-family: bebase;
 }
 .icon-tag {
 	text-align: center;
+		
 }
 
 .icon-tag img{
@@ -79,4 +95,12 @@ textarea {
 	height: 75px;
 	width: 75px;
 	margin-top: 0px;
+}
+.alternatives a {
+	color: #000;
+}
+
+
+footer {
+	text-align: center
 }
