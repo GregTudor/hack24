@@ -47,9 +47,9 @@ namespace hack24.web.Controllers
 			using (var session = MartenStuff.Store.LightweightSession())
 			{
 				var profile = session.Query<ProfileModel>().Single(x => x.Id == new Guid("018b2e28-a971-428d-9b1f-f7d07f716a03"));
-				var holidayApprover = session.Query<ProfileModel>().Single(x => x.Id == new Guid("018b2e28-a971-428d-9b1f-f7d07f716a03"));
-				var lineManager = session.Query<ProfileModel>().Single(x => x.Id == new Guid("018b2e28-a971-428d-9b1f-f7d07f716a03"));
-				var payManger = session.Query<ProfileModel>().Single(x => x.Id == new Guid("018b2e28-a971-428d-9b1f-f7d07f716a03"));
+				var holidayApprover = session.Query<ProfileModel>().Single(x => x.Id == new Guid("23af654b-768b-44da-af04-1fbe8c66a1a5"));
+				var lineManager = session.Query<ProfileModel>().Single(x => x.Id == new Guid("452b677a-fc9e-4331-85ec-c014a11472e7"));
+				var payManger = session.Query<ProfileModel>().Single(x => x.Id == new Guid("76802d04-04ed-4961-ae3e-71570e88cc85"));
 				if (profile == null)
 				{
 					return new HttpNotFoundResult();
@@ -113,7 +113,7 @@ namespace hack24.web.Controllers
 						LastName = split[0].Split(' ')[1],
 						JobTitle = split[3],
 						Tags = split[2].Split('|').Select(TagProvider.GetById).ToArray(),
-						ProfileImage = "Default.png",
+						//ProfileImage = "Default.png",
 						Department = split[1]
 					};
 

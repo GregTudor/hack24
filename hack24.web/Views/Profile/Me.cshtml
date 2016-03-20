@@ -1,11 +1,11 @@
-﻿@using hack24.web.Resources
+﻿@using System.Web.UI.WebControls
+@using hack24.web.Resources
 @model ProfileResource
 @{
 	ViewBag.Title = "Profile";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<img class="profile-image" src="~/Content/images/profile/barry.jpg"/>
+<img class="profile-image" src="@Url.Content("~/Content/images/profile/" + @Model.Primary.ProfileImage + ".jpg")"/>
 
 <h2>@Model.Primary.FirstName @Model.Primary.LastName</h2>
 <p>@Model.Primary.JobTitle</p>
@@ -13,19 +13,19 @@
 	<div class="row">
 
 		<div class="col-xs-4">
-			<img class="profile-image" src="~/Content/images/profile/smug.jpg"/>
+			<img class="profile-image" src="@Url.Content("~/Content/images/profile/" + @Model.LineManager.ProfileImage +".jpg")" />
 			<b><a href="@Url.Action("View", "Profile", new { Model.LineManager.Id })">@Model.LineManager.FirstName @Model.LineManager.LastName</a></b>
 			is my line manager
 		</div>
 
 		<div class="col-xs-4">
-			<img class="profile-image" src="~/Content/images/profile/smug.jpg"/>
+			<img class="profile-image" src="@Url.Content("~/Content/images/profile/" + @Model.HolidayApprover.ProfileImage +".jpg")" />
 			<b><a href="@Url.Action("View", "Profile", new { Model.HolidayApprover.Id })">@Model.HolidayApprover.FirstName @Model.HolidayApprover.LastName</a></b>
 			approves holidays
 		</div>
 
 		<div class="col-xs-4">
-			<img class="profile-image" src="~/Content/images/profile/smug.jpg" />
+			<img class="profile-image" src="@Url.Content("~/Content/images/profile/" + @Model.PayManager.ProfileImage +".jpg")" />
 			<b><a href="@Url.Action("View", "Profile", new { Model.PayManager.Id })">@Model.PayManager.FirstName @Model.PayManager.LastName</a></b>
 			handles payroll
 		</div>

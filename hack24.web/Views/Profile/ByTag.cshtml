@@ -9,8 +9,8 @@
 @foreach (var p in Model.Profiles) {
 
 	<div>
-		<b><a href="@Url.Action("View","Profile",new {p.Id})">@p.FirstName @p.LastName</a></b>
-		<p>@p.JobTitle</p>
+		<img class="profile-image-small" src="@Url.Content("~/Content/images/profile/" + p.ProfileImage + ".jpg")" />
+		<b><a href="@Url.Action("View", "Profile", new { p.Id })">@p.FirstName @p.LastName</a></b> - @p.JobTitle
 	</div>
 	<hr/>
 }
