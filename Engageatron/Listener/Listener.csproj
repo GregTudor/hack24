@@ -81,7 +81,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GmailHelper.cs" />
+    <Compile Include="Listener\InboxPoller.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="SimpleMessage.SimpleMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sender\EmailSender.cs" />
   </ItemGroup>
@@ -93,7 +96,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Listener\" />
     <Folder Include="Sentiment\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
