@@ -51,14 +51,18 @@ namespace Listener.Listener
                     var body = GmailHelper.Base64UrlDecode(messageResponse.Payload.Body.Data);
                     var emailAddress = messageResponse.Payload.Headers.First(x => x.Name == "Reply-To").Value;
                     var subject = messageResponse.Payload.Headers.First(x => x.Name == "Subject").Value;
-                    returnList.Add(new SimpleMessage(emailAddress, subject, body));
+                    var date = messageResponse.Payload.Headers.First(x => x.Name == "Date").Value;
+
+                    returnList.Add(new SimpleMessage(emailAddress, subject, body, DateTime.Parse(date)));
                 }
                 else
                 {
                     var emailAddress = messageResponse.Payload.Headers.First(x => x.Name == "Return-Path").Value;
                     var subject = messageResponse.Payload.Headers.First(x => x.Name == "Subject").Value;
                     var body = GmailHelper.Base64UrlDecode(messageResponse.Payload.Parts[0].Body.Data);
-                    returnList.Add(new SimpleMessage(emailAddress, subject, body));
+                    var date = messageResponse.Payload.Headers.First(x => x.Name == "Date").Value;
+
+                    returnList.Add(new SimpleMessage(emailAddress, subject, body, DateTime.Parse(date)));
                 }
                 //				var markAsReadRequest = service.Users.Messages.Trash(userId, message.Id);
                 //				markAsReadRequest.Execute();

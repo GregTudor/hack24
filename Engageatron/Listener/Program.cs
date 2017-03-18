@@ -21,10 +21,10 @@ namespace Listener
         {
             var inboxPoller = new InboxPoller();
             var sentimentService = new TextAnalyticsService();
+            var report = new Report();
             sender = new FakeMessageSender();
             var i = 0;
 
-            var data = new List<SimpleMessage>();
             while (true)
             {
                 var newMessages = inboxPoller.Poll();
@@ -39,12 +39,8 @@ namespace Listener
                     };
                     var result = sentimentService.Analyse(payload);
 
-                    data.Add(simpleMessage);
-                    Console.WriteLine("-----------------------");
-                    Console.WriteLine(simpleMessage.EmailAddress);
-                    Console.WriteLine(simpleMessage.Body);
-                    Console.WriteLine(result.AsMood());
-                    Console.WriteLine("-----------------------");
+                    report.Record(simpleMessage, result.AsMood());
+
                 }
 
                 if (i%59 == 0)
@@ -53,15 +49,35 @@ namespace Listener
                 }
                 i++;
                 Thread.Sleep(1000);
+                report.SerializeToDisk(@"d:\hack24data\dump.json");
+                WriteReport(report);
             }
 
-            Console.ReadKey
-                ();
+            Console.ReadKey();
+                
+        }
+
+        private static void WriteReport(Report report)
+        {
+            Console.Clear();
+            Console.WriteLine("Overall Mood is");
+            Console.WriteLine(report.OverallMood());
+            Console.WriteLine();
+
+            foreach (var email in report.ByEmailAddress)
+            {
+                Console.WriteLine(email.Key);
+                foreach (var result in email.Value)
+                {
+                    Console.WriteLine($"{result.TimeStamp} - {result.Mood}");
+                }
+               Console.WriteLine("--------------------------------");
+            }
+            
         }
 
 
-        private static
-            void SendFake()
+        private static void SendFake()
         {
             var r = new Random();
             var message = fakeMessages.ElementAt(r.Next(fakeMessages.Length));

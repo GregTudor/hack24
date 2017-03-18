@@ -89,6 +89,7 @@
     <Compile Include="GmailHelper.cs" />
     <Compile Include="Listener\InboxPoller.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Report.cs" />
     <Compile Include="Sender\FakeMessageSender.cs" />
     <Compile Include="Sentiment\SentimentExtensions.cs" />
     <Compile Include="Sentiment\SentimentExtensions.Mood.cs" />
