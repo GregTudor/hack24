@@ -11,7 +11,6 @@ namespace Listener.Listener
     {
         private List<string> seenAlready;
         private GmailService service;
-        const string userId = "engageatron@gmail.com";
 
         public InboxPoller()
         {
@@ -29,7 +28,7 @@ namespace Listener.Listener
         {
             var messages = new List<Message>();
 
-            var request = service.Users.Messages.List(userId);
+            var request = service.Users.Messages.List(GmailHelper.UserId);
             request.Q = "is:unread";
 
             ListMessagesResponse response = request.Execute();
@@ -44,25 +43,23 @@ namespace Listener.Listener
 
                 seenAlready.Add(message.Id);
 
-                var getMessageRequest = service.Users.Messages.Get(userId, message.Id);
+                var getMessageRequest = service.Users.Messages.Get(GmailHelper.UserId, message.Id);
                 getMessageRequest.Format = UsersResource.MessagesResource.GetRequest.FormatEnum.Full;
                 var messageResponse = getMessageRequest.Execute();
-
-                var bodyData = messageResponse.Payload.Parts[0].Body.Data;
-                bodyData = bodyData.Replace('-', '+');
-                bodyData = bodyData.Replace('_', '/');
-                var data = Convert.FromBase64String(bodyData);
-                var decodedString = Encoding.UTF8.GetString(data);
-                //  Console.WriteLine("{0}: {1}", message.Id, decodedString);
-
-
-                returnList.Add(new SimpleMessage()
+                if (messageResponse.Payload.MimeType == "text/plain")
                 {
-                    EmailAddress = messageResponse.Payload.Headers.First(x => x.Name == "Return-Path").Value,
-                    Subject = messageResponse.Payload.Headers.First(x => x.Name == "Subject").Value,
-                    Body = decodedString
-                });
-
+                    var body = GmailHelper.Base64UrlDecode(messageResponse.Payload.Body.Data);
+                    var emailAddress = messageResponse.Payload.Headers.First(x => x.Name == "Reply-To").Value;
+                    var subject = messageResponse.Payload.Headers.First(x => x.Name == "Subject").Value;
+                    returnList.Add(new SimpleMessage(emailAddress, subject, body));
+                }
+                else
+                {
+                    var emailAddress = messageResponse.Payload.Headers.First(x => x.Name == "Return-Path").Value;
+                    var subject = messageResponse.Payload.Headers.First(x => x.Name == "Subject").Value;
+                    var body = GmailHelper.Base64UrlDecode(messageResponse.Payload.Parts[0].Body.Data);
+                    returnList.Add(new SimpleMessage(emailAddress, subject, body));
+                }
                 //				var markAsReadRequest = service.Users.Messages.Trash(userId, message.Id);
                 //				markAsReadRequest.Execute();
             }
