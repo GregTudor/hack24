@@ -1,4 +1,4 @@
-﻿namespace Listener.Sentiment
+﻿namespace Common
 {
 
     public enum Mood

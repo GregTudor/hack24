@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Listener
+namespace Common
 {
     public sealed class SimpleMessage
     {

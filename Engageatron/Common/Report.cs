@@ -1,32 +1,36 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Listener.Sentiment;
 using Newtonsoft.Json;
 
-namespace Listener
+namespace Common
 {
+    [JsonObject(MemberSerialization.OptIn)]
     public class Report
     {
-        public Dictionary<string,List<Result>> ByEmailAddress;
-        private List<decimal> DataForOverallMood;
+        [JsonProperty]
+        public Dictionary<string, List<Result>> ByEmailAddress;
+        [JsonProperty]
+        public List<decimal> DataForOverallMood;
+
         public Report()
         {
             this.ByEmailAddress = new Dictionary<string, List<Result>>();
             DataForOverallMood = new List<decimal>();
-           
         }
 
-       
 
         public void Record(SimpleMessage simpleMessage, MoodResult asMood)
         {
-            if(!this.ByEmailAddress.ContainsKey(simpleMessage.EmailAddress))
-                this.ByEmailAddress.Add(simpleMessage.EmailAddress,new List<Result>());
+            if (!this.ByEmailAddress.ContainsKey(simpleMessage.EmailAddress))
+                this.ByEmailAddress.Add(simpleMessage.EmailAddress, new List<Result>());
 
-            this.ByEmailAddress[simpleMessage.EmailAddress].Add(new Result{TimeStamp = simpleMessage.Timestamp, Mood = asMood.Mood});
+            this.ByEmailAddress[simpleMessage.EmailAddress].Add(new Result
+            {
+                TimeStamp = simpleMessage.Timestamp,
+                Mood = asMood.Mood
+            });
             DataForOverallMood.Add(asMood.Score);
         }
 
