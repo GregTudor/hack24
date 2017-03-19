@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
 using Common;
-using Google.Apis.Gmail.v1;
-using Google.Apis.Gmail.v1.Data;
 using Listener.Listener;
 using Listener.Sender;
 using Listener.Sentiment;
@@ -44,7 +40,7 @@ namespace Listener
 
                 }
 
-                if (i%59 == 0)
+                if (i%2 == 0)
                 {
                     SendFake();
                 }
@@ -87,11 +83,7 @@ namespace Listener
             var from = froms.ElementAt(r.Next(froms.Length));
 
             sender.Send
-            ("engageatron@gmail.com", "about my day",
-                message
-                ,
-                from
-            );
+            ("engageatron@gmail.com", "about my day",message,from);
         }
 
         private static
@@ -118,7 +110,12 @@ namespace Listener
                         ,
                         "AGhhhhhhhhhhhhhhhhhhh!!",
                         "Resharper made me cry. Why does it do that",
-                        "One day, I'm gonna by a gun, a kitten and 6 rolls of clingfilm",
+                        "Jira, why do you forsake me",
+                        "Good work this week",
+                        "Didn't get much done. Too many meetings",
+                        "Can't get truck crane out of my head. slowly going insane",
+                        "Paket Restore woes",
+                        "Annoyingly had to stop work to help the app team ship",
                         "Stevie told me about his bins, that was nice of him",
                     }
             ;

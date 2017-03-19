@@ -33,7 +33,7 @@ namespace Listener.Listener
             request.Q = "is:unread";
 
             ListMessagesResponse response = request.Execute();
-            messages.AddRange(response.Messages);
+            messages.AddRange(response.Messages ?? new List<Message>());
 
             //  Console.WriteLine("Received {0} new messages", messages.Count);
             var returnList = new List<SimpleMessage>();

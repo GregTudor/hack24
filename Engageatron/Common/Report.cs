@@ -36,7 +36,10 @@ namespace Common
 
         public Mood OverallMood()
         {
+            if(DataForOverallMood.Any())
             return new MoodResult(DataForOverallMood.Average()).Mood;
+
+            return Mood.Neutral;
         }
 
         public void SerializeToDisk(string savePath)

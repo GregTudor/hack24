@@ -1,4 +1,5 @@
-﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Engageatron.Web.Modules.IndexResource>
+﻿@using System.Linq
+@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Engageatron.Web.Modules.IndexResource>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Bootstrap 101 Template</title>
-
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="~/Content/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="~/Content/jquery.jqplot.min.js"></script>
     <!-- Bootstrap -->
     <link href="~/Content/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
     
     <link href="~/Content/bootstrap-3.3.7-dist/jumbotron-narrow.css" rel="stylesheet">
+    <link href="~/Content/jquery.jqplot.min.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -29,33 +35,174 @@
                     <li role="presentation"><a href="#">Contact</a></li>
                 </ul>
             </nav>
-            <h3 class="text-muted">Project name</h3>
+            <h3 class="text-muted">Engage-a-tron</h3>
         </div>
         <div class="jumbotron">
             <h1>Current Company Mood</h1>
-            <p>@Model.Rpt.OverallMood()</p>
+            <p><img src="~/Content/@(Model.Rpt.OverallMood() +".png")" style="width: 30%"/></p>
+            @if (Model.Rpt.OverallMood() == Mood.Negative || Model.Rpt.OverallMood() == Mood.VeryNegative)
+            {
+                <h2>Uh-oh time to order pizzas and book a conference room</h2>
+            }
         </div>
+        
+        <div class="col-lg-12">
+            <div id="overall-chart"></div>
+        </div>
+        <script class="code" type="text/javascript">
+            $(document).ready(function(){
+                var plot2 = $.jqplot ('overall-chart', [[@string.Join(",", Model.Rpt.ByEmailAddress.SelectMany(x => x.Value.OrderBy(z => z.TimeStamp).Select(y => -2 + (int)y.Mood)))  /*.Value.Select(x=>-2+(int)x.Mood))*/]], {
+                    // Give the plot a title.
+                    title: 'Overall mood over time',
+                    // You can specify options for all axes on the plot at once with
+                    // the axesDefaults object.  Here, we're using a canvas renderer
+                    // to draw the axis label which allows rotated text.
+                    axesDefaults: {
+                        labelRenderer: $.jqplot.CanvasAxisLabelRenderer
+                    },
+                    // Likewise, seriesDefaults specifies default options for all
+                    // series in a plot.  Options specified in seriesDefaults or
+                    // axesDefaults can be overridden by individual series or
+                    // axes options.
+                    // Here we turn on smoothing for the line.
+                    seriesDefaults: {
+                        rendererOptions: {
+                            smooth: true
+                        }
+                    },
+                    // An axes object holds options for all axes.
+                    // Allowable axes are xaxis, x2axis, yaxis, y2axis, y3axis, ...
+                    // Up to 9 y axes are supported.
+                    axes: {
+                        // options for each axis are specified in seperate option objects.
+                        xaxis: {
+                            label: "Email",
+                            // Turn off "padding".  This will allow data point to lie on the
+                            // edges of the grid.  Default padding is 1.2 and will keep all
+                            // points inside the bounds of the grid.
+                            pad: 1.2
+                        },
+                        yaxis: {
+                            label: "Mood"
+
+                        }
+                    }
+                });
+            });
+        </script>
   
         @foreach (var r in Model.Rpt.ByEmailAddress)
         {
             <div class="row marketing">
                 <div class="col-lg-6">
-                <h4>@r.Key</h4>
+                    <h4>@r.Key</h4>
 
-               @foreach (var result in r.Value)
-                {
-                <p>@result.TimeStamp @result.Mood</p>
-                }
+                    @foreach (var result in r.Value)
+                    {
+                        <p>@result.TimeStamp <img src="~/Content/@(result.Mood +".png")" style="width: 10%" /></p>
+                    }
+                </div>
+                <div class="col-lg-6" style="text-align: center;">
+                    <div id="@r.Key.Split('@')[0].Replace(".","")"></div>
+                    <div class="btn btn-primary" style="margin: 0 auto;">Show meeting availability</div>
+                    <div class="availability" style="display: none;">
+                        <h4>Available Times</h4>
+                    </div>
+                </div>
             </div>
-            </div>
+
+            <script class="code" type="text/javascript">
+                $(document).ready(function(){
+                    var plot2 = $.jqplot ('@r.Key.Split('@')[0].Replace(".", "")', [[@string.Join(",", r.Value.Select(x=>-2+(int)x.Mood))]], {
+                        // Give the plot a title.
+                        title: 'Mood over time',
+                        // You can specify options for all axes on the plot at once with
+                        // the axesDefaults object.  Here, we're using a canvas renderer
+                        // to draw the axis label which allows rotated text.
+                        axesDefaults: {
+                            labelRenderer: $.jqplot.CanvasAxisLabelRenderer
+                        },
+                        // Likewise, seriesDefaults specifies default options for all
+                        // series in a plot.  Options specified in seriesDefaults or
+                        // axesDefaults can be overridden by individual series or
+                        // axes options.
+                        // Here we turn on smoothing for the line.
+                        seriesDefaults: {
+                            rendererOptions: {
+                                smooth: true
+                            }
+                        },
+                        // An axes object holds options for all axes.
+                        // Allowable axes are xaxis, x2axis, yaxis, y2axis, y3axis, ...
+                        // Up to 9 y axes are supported.
+                        axes: {
+                            // options for each axis are specified in seperate option objects.
+                            xaxis: {
+                                label: "Email",
+                                // Turn off "padding".  This will allow data point to lie on the
+                                // edges of the grid.  Default padding is 1.2 and will keep all
+                                // points inside the bounds of the grid.
+                                pad: 1.2
+                            },
+                            yaxis: {
+                                label: "Mood",
+            
+                            }
+                        }
+                    });
+                });
+            </script>
         }
-</div>
+        
+        <script>
+            $.post('/availability',
+                function(data) {
+                    console.log(data);
+                    $('.availability')
+                        .each(function(i, el) {
+                            var ul = $("<ul />");
+                            for (var i = 0; i < data.length; i++) {
+                                var start = new Date(data[i].start);
+                                var end = new Date(data[i].end);
+
+                                //    console.log(formatDate(start));
+
+                                ul.append("<li>" + start + " -> " + end);
+                            }
+
+
+                            $(el).append(ul);
+                        });
+                });
+
+            $(".btn")
+                .on("click",
+                    function(e) {
+                        var target = $(e.currentTarget);
+                        console.log(target);
+                        target.siblings(".availability").toggle();
+                    });
+
+            function formatDate(date) {
+                console.log(date);
+                var d = Date.parse(date),
+                 dformat = [d.getMonth()+1,
+               d.getDate(),
+               d.getFullYear()].join('/')+' '+
+              [d.getHours(),
+               d.getMinutes(),
+               d.getSeconds()].join(':');
+
+                return dformat;
+            }
+        </script>
+
+    </div>
         <footer class="footer">
             <p>&copy; 2016 Company, Inc.</p>
         </footer>
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="~/Content/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+    
+    
 </body>
 </html>
